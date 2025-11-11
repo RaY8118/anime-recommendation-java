@@ -2,7 +2,7 @@ package com.ray8118.recommendation.models;
 
 import java.util.List;
 
-public class anime {
+public class Anime {
     private int id;
     private Title title;
     private String description;
