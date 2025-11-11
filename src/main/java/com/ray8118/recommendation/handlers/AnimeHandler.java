@@ -16,7 +16,6 @@ public class AnimeHandler implements HttpHandler {
     public void handle(HttpExchange exchange) throws IOException {
         String path = exchange.getRequestURI().getPath();
         String method = exchange.getRequestMethod();
-        System.out.println("Path: " + path + " Method: " + method);
 
         if (method.equalsIgnoreCase("GET")) {
             try {
@@ -61,7 +60,6 @@ public class AnimeHandler implements HttpHandler {
     private void sendResponse(HttpExchange exchange, int statusCode, String responseText) throws IOException {
         exchange.getResponseHeaders().add("Content-Type", "application/json");
         exchange.sendResponseHeaders(statusCode, responseText.length());
-        System.out.println("Statuscode: " + statusCode + " Response :" + responseText);
         try (OutputStream os = exchange.getResponseBody()) {
             os.write(responseText.getBytes());
         }
